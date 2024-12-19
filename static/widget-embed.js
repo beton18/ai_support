@@ -179,7 +179,7 @@
 
                 this.addMessage('...', 'assistant loading');
 
-                const response = await fetch('https://your-server-url.com/message', {
+                const response = await fetch('https://ai-support-h5a0.onrender.com/message', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
