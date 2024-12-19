@@ -3,5 +3,3 @@ flask-cors
 openai
 python-dotenv
 gunicorn
-os
-logging
