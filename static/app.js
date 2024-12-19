@@ -4,7 +4,21 @@ class ChatWidget {
     }
  
     initialize() {
-        // Получаем элементы (без использования шаблона)
+        // Создаем виджет из шаблона
+        const template = document.getElementById('chat-widget-template');
+        if (!template) {
+            console.error('Template not found');
+            return;
+        }
+        const widget = template.content.cloneNode(true);
+        const container = document.getElementById('chat-widget-container');
+        if (!container) {
+            console.error('Container not found');
+            return;
+        }
+        container.appendChild(widget);
+ 
+        // Теперь получаем элементы после того, как они добавлены в DOM
         this.widget = document.querySelector('.chat-widget');
         this.messagesContainer = this.widget.querySelector('.chat-widget-messages');
         this.textarea = this.widget.querySelector('.chat-widget-textarea');
@@ -96,7 +110,7 @@ class ChatWidget {
     }
  }
  
- // Инициализация виджета после загрузки DOM
+ // Ждем загрузку DOM перед инициализацией
  document.addEventListener('DOMContentLoaded', () => {
     new ChatWidget();
  });
